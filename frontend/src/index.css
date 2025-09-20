@@ -1,0 +1,94 @@
+@import 'react-toastify/dist/ReactToastify.css';
+:root {
+  --primary: #AE152D;
+  --blue: #2374AB;
+  --yellow: #E3B505;
+  --black: #1A1B25;
+  --white: #E5E5E5;
+  --font-imp: "Jost";
+  --font-para: "Roboto Mono";
+  --prim-soft: #e5dfdf;
+  --black-soft: #212230;
+  --white-hard: #c4bdbd;
+}
+
+::selection{
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root, html {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--white);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+  
+header {
+  width: 100%;
+  z-index: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#logout {
+  font-family: var(--font-imp);
+  background-color: var(--black-soft);
+  color: var(--white);
+  font-size: 0.8rem;
+  margin-right: 2ch;
+  padding: 10px 15px;
+  font-weight: 600;
+  transition: 0.2s ease-in-out;
+}
+
+#logout:hover {
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+#logo {
+  height: 3.6rem;
+  width: auto;
+}
+
+/*PC Stuff*/
+
+/*Tablet responsiveness*/
+@media only screen and (max-device-width: 1025px){
+  :root{
+    font-size: 18px;
+  }
+}
+
+/*Mobile responsiveness*/
+@media only screen and (max-device-width: 450px){
+  :root{
+    font-size: 12px;
+  }
+}

@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './login.css';
+import './edit.css';
 
-function Login() {
+function EditPassword() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const gridRef = useRef<HTMLDivElement>(null);
@@ -39,7 +39,7 @@ function Login() {
   const submitData = async () => {
     try {
       sessionStorage.clear();
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("http://localhost:8000/edit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,14 +77,13 @@ function Login() {
         <div id="toggle">
         </div>
 
-        <h1>SIGN IN</h1>
+        <h1>CHANGE PASSWORD</h1>
         <div id="login">
           <input type="text" id="user" placeholder="Username" value={username.trim()} onChange={(e) => setUsername(e.target.value)}/>
           <input type="password" id="password" placeholder="Password" value={password.trim()} onKeyDown={handleKeyDown} onChange={(e) => setPassword(e.target.value)}/>
           <button id="submit" onClick={(e) => { e.preventDefault(); submitData(); }}>CONTINUE</button>
           <div className="link-container">
-          <Link className="CP" to="/createAcc"> Create A New Account </Link>
-          <Link className="CP" to="/edit"> Forgot Password? </Link>
+          <Link className="CP" to="/login"> Back To Login </Link>
           </div>
           
         </div>
@@ -93,4 +92,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default EditPassword;

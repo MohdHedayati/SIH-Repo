@@ -1,14 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import './login.css';
+import './createAcc.css';
 
-function Login() {
+function CreateAcc() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [dob, setDOB] = useState("");
+  const [name, setName] = useState("");
+
   const gridRef = useRef<HTMLDivElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
   const maxMovement = 16;
-
 
 
   useEffect(() => {
@@ -39,12 +41,12 @@ function Login() {
   const submitData = async () => {
     try {
       sessionStorage.clear();
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("http://localhost:8000/createAcc", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({username, password }),
+        body: JSON.stringify({name,username,dob, password }),
       });
 
       const data = await response.json();
@@ -65,6 +67,7 @@ function Login() {
 
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
+      console.log(dob);
       submitData();
     }
   };
@@ -77,14 +80,15 @@ function Login() {
         <div id="toggle">
         </div>
 
-        <h1>SIGN IN</h1>
+        <h1>SIGN UP</h1>
         <div id="login">
+          <input type="text" id="name" placeholder="Name" value={name.trim()} onChange={(e) => setName(e.target.value)}/>
           <input type="text" id="user" placeholder="Username" value={username.trim()} onChange={(e) => setUsername(e.target.value)}/>
-          <input type="password" id="password" placeholder="Password" value={password.trim()} onKeyDown={handleKeyDown} onChange={(e) => setPassword(e.target.value)}/>
+          <input type="text" id="dob" placeholder="Date Of Birth (DD-MM-YYYY)" value={dob.trim()} onChange={(e) => setDOB(e.target.value)}/>
+          <input type="password" id="password" placeholder="New Password" value={password.trim()} onKeyDown={handleKeyDown} onChange={(e) => setPassword(e.target.value)}/>
           <button id="submit" onClick={(e) => { e.preventDefault(); submitData(); }}>CONTINUE</button>
           <div className="link-container">
-          <Link className="CP" to="/createAcc"> Create A New Account </Link>
-          <Link className="CP" to="/edit"> Forgot Password? </Link>
+          <Link className="CP" to="/login"> Already Have an Account </Link>
           </div>
           
         </div>
@@ -93,4 +97,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default CreateAcc;

@@ -39,7 +39,7 @@ function Login() {
   const submitData = async () => {
     try {
       sessionStorage.clear();
-      const response = await fetch("http://127.0.0.1:8000/login", {
+      const response = await fetch("http://localhost:8000/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ function Login() {
           <button id="submit" onClick={(e) => { e.preventDefault(); submitData(); }}>CONTINUE</button>
           <div className="link-container">
           <Link className="CP" to="/createAcc"> Create A New Account </Link>
-          <Link className="CP" to="/edit"> Forgot Password? </Link>
+          <Link className="CP" to="/edit"> Change Password </Link>
           </div>
           
         </div>

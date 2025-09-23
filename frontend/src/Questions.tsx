@@ -1,69 +1,110 @@
 import React, { useState, useEffect } from "react";
 import "./Questions.css";
 
+// Define the structure of a Question and an Option
+interface Option {
+  id: number;
+  option_text: string;
+  next_question_id: number | null;
+}
+
+interface Question {
+  id: number;
+  question_text: string;
+  chatbot_reply: string;
+  options: Option[] | null;
+  is_final: boolean;
+}
+
 function Questions() {
-  const [questions, setQuestions] = useState<string[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [userAnswers, setUserAnswers] = useState<any[]>([]);
 
-  useEffect(() => {
-    fetch("http://localhost:8000/api/questions")
-      .then((res) => res.json())
-      .then((data) => {
-        setQuestions(data.map((q: any) => q.text || q));
-        setAnswers(Array(data.length).fill(""));
+  // Function to fetch a question by its ID
+  const fetchQuestion = (id: number) => {
+    setIsLoading(true);
+    fetch(`http://localhost:8000/api/question/${id}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
       })
-      .catch(() => setQuestions([]));
-  }, []);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const updatedAnswers = [...answers];
-    updatedAnswers[currentIndex] = e.target.value;
-    setAnswers(updatedAnswers);
+      .then((data: Question) => {
+        setCurrentQuestion(data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        setError("Failed to load question. Please try again.");
+        console.error(err);
+        setIsLoading(false);
+      });
   };
 
-  const handleNext = () => {
-    if (currentIndex < questions.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    } else {
-      // send answers to backend
-      fetch("http://localhost:8000/api/answers", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          username: sessionStorage.getItem("user")
-            ? JSON.parse(sessionStorage.getItem("user")!).user
-            : "Anonymous",
-          answers,
-        }),
-      })
-        .then((res) => res.json())
-        .then(() => {
-          alert("Quiz finished! Answers saved (in memory).");
-        })
-        .catch(() => alert("Failed to save answers."));
+  // Fetch the very first question when the page loads
+  useEffect(() => {
+    fetchQuestion(1);
+  }, []);
+
+  // Function to handle when a user clicks an option
+  const handleOptionClick = (option: Option) => {
+    // Save the user's choice
+    const answer = {
+      questionId: currentQuestion?.id,
+      questionText: currentQuestion?.question_text,
+      answerId: option.id,
+      answerText: option.option_text,
+    };
+    const newAnswers = [...userAnswers, answer];
+    setUserAnswers(newAnswers);
+
+    // Move to the next question
+    if (option.next_question_id) {
+      fetchQuestion(option.next_question_id);
     }
   };
 
-  if (questions.length === 0) return <h2>Loading questions...</h2>;
+  // --- RENDER LOGIC ---
+
+  if (isLoading) {
+    return <h2>Loading questions...</h2>;
+  }
+
+  if (error) {
+    return <h2 style={{ color: "red" }}>{error}</h2>;
+  }
+
+  if (!currentQuestion) {
+    return <h2>No question found.</h2>;
+  }
 
   return (
     <div className="container">
-      <h1>Career Quiz</h1>
-      <h2>
-        Question {currentIndex + 1} of {questions.length}
-      </h2>
-      <p>{questions[currentIndex]}</p>
-      <input
-        type="text"
-        value={answers[currentIndex]}
-        onChange={handleChange}
-        placeholder="Type your answer"
-      />
-      <br />
-      <button onClick={handleNext}>
-        {currentIndex === questions.length - 1 ? "Finish" : "Next"}
-      </button>
+      <div className="question-card">
+        <h1>AI Career Counselor</h1>
+        <p className="chatbot-reply">{currentQuestion.chatbot_reply}</p>
+        <div className="question-text">
+          {/* Using dangerouslySetInnerHTML to render markdown like ### and ** */}
+          <p dangerouslySetInnerHTML={{ __html: currentQuestion.question_text.replace(/\n/g, '<br />') }} />
+        </div>
+
+        {/* If it's the final question, don't show options */}
+        {!currentQuestion.is_final && currentQuestion.options && (
+          <div className="options-grid">
+            {currentQuestion.options.map((option) => (
+              <button
+                key={option.id}
+                className="option-button"
+                onClick={() => handleOptionClick(option)}
+              >
+                {option.option_text}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

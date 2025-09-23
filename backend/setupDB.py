@@ -2,9 +2,9 @@ import mysql.connector
 
 # Connect to MySQL server
 conn = mysql.connector.connect(
-    host="localhost",       
-    user="root",            
-    password="avi691610"   # your MySQL password
+    host="localhost",
+    user="root",
+    password="avi691610"  # your MySQL password
 )
 
 cursor = conn.cursor()
@@ -13,10 +13,10 @@ cursor = conn.cursor()
 cursor.execute("CREATE DATABASE IF NOT EXISTS student_db")
 cursor.execute("USE student_db")
 
-cursor.execute("""
-    DROP table if exists users
-""")
-# Create students table
+# Drop the table to ensure a fresh start
+cursor.execute("DROP TABLE IF EXISTS users")
+
+# Create the users table again
 cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
         uid INT PRIMARY KEY,
@@ -27,6 +27,8 @@ cursor.execute("""
     )
 """)
 
+# --- CORRECTED DUMMY DATA ---
+# The order is now: uid, uname, name, dob, password
 dummy_data = [
     (1001, "aarav01", "Aarav Sharma", "2007-05-14", "Aarav@123"),
     (1002, "diya02", "Diya Verma", "2008-08-22", "Diya#456"),
@@ -40,16 +42,15 @@ dummy_data = [
     (1010, "priya10", "Priya Chopra", "2008-06-07", "Priya@159")
 ]
 
-try:
-    # Insert data
-    cursor.executemany("""
-        INSERT INTO users (uid, uname, name, dob, password)
-        VALUES (%s, %s, %s, %s, %s)
-    """, dummy_data)
-except Exception as e:
-    print("Insert error:", e)
+# Insert the dummy data into the table
+cursor.executemany("""
+    INSERT INTO users (uid, uname, name, dob, password)
+    VALUES (%s, %s, %s, %s, %s)
+""", dummy_data)
 
+# Commit the changes and close the connection
 conn.commit()
-
 cursor.close()
 conn.close()
+
+print("Database setup complete. The 'users' table has been recreated with the corrected data.")

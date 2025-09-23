@@ -48,13 +48,14 @@ function Login() {
       });
 
       const data = await response.json();
-      if (!data.isValid) { 
+      if (!data.isValid) {
         alert(data.message);
         return;
       }
       if (data.isValid) {
         sessionStorage.setItem("user", JSON.stringify(data.user));
-        window.location.href = '/edit';
+        // --- THIS IS THE CORRECTED LINE ---
+        window.location.href = '/questions';
       }
 
 

@@ -1,0 +1,181 @@
+[
+    {
+        "id": 1,
+        "options": [
+            {
+                "id": 1,
+                "option_text": "You can enter your name here...",
+                "next_question_id": 2
+            }
+        ],
+        "is_final": false,
+        "chatbot_reply": "It's great to meet you!",
+        "question_text": "Hello! To personalize this journey, what should I call you?"
+    },
+    {
+        "id": 2,
+        "options": [
+            {
+                "id": 2,
+                "option_text": "You can enter your city here...",
+                "next_question_id": 3
+            }
+        ],
+        "is_final": false,
+        "chatbot_reply": "Awesome! Location can be key for opportunities later on.",
+        "question_text": "Which city do you call home?"
+    },
+    {
+        "id": 3,
+        "options": [
+            { "id": 3, "option_text": "> 90% (Distinction)", "next_question_id": 4 },
+            { "id": 4, "option_text": "80% - 90% (First Class)", "next_question_id": 4 },
+            { "id": 5, "option_text": "70% - 80% (Higher Second Class)", "next_question_id": 4 },
+            { "id": 6, "option_text": "60% - 70% (Second Class)", "next_question_id": 4 },
+            { "id": 7, "option_text": "Prefer not to say", "next_question_id": 4 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "Thanks for sharing. Remember, scores are just one part of the picture!",
+        "question_text": "Thinking about your recent academic performance, which range best describes your scores?"
+    },
+    {
+        "id": 4,
+        "options": [
+            { "id": 8, "option_text": "Mathematics (Problem-Solving & Logic)", "next_question_id": 5 },
+            { "id": 9, "option_text": "Physics (Understanding the Universe)", "next_question_id": 5 },
+            { "id": 10, "option_text": "Chemistry (The Science of Matter)", "next_question_id": 5 },
+            { "id": 11, "option_text": "Biology (The Study of Life)", "next_question_id": 5 },
+            { "id": 12, "option_text": "Computer Science (Coding & Tech)", "next_question_id": 5 },
+            { "id": 13, "option_text": "History & Civics (Understanding Society)", "next_question_id": 5 },
+            { "id": 14, "option_text": "Economics & Commerce (Understanding Business)", "next_question_id": 5 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "Excellent. Leaning into your strengths is a great strategy.",
+        "question_text": "Every student has subjects they connect with. Which of these feels like your strongest area?"
+    },
+    {
+        "id": 5,
+        "options": [
+            { "id": 15, "option_text": "Mathematics", "next_question_id": 6 },
+            { "id": 16, "option_text": "Physics", "next_question_id": 6 },
+            { "id": 17, "option_text": "Chemistry", "next_question_id": 6 },
+            { "id": 18, "option_text": "History / Memorization-heavy subjects", "next_question_id": 6 },
+            { "id": 19, "option_text": "Arts / Creative subjects", "next_question_id": 6 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "That's perfectly normal and helps us understand your unique profile.",
+        "question_text": "And what about the other side? Is there a subject you find more challenging or less intuitive?"
+    },
+    {
+        "id": 6,
+        "options": [
+            { "id": 20, "option_text": "Building a hands-on project (Practical Application)", "next_question_id": 7 },
+            { "id": 21, "option_text": "Understanding the core theory first (Theoretical Foundation)", "next_question_id": 7 },
+            { "id": 22, "option_text": "Collaborating with a team on a challenge (Group Work)", "next_question_id": 7 },
+            { "id": 23, "option_text": "Watching video tutorials and examples (Visual Learning)", "next_question_id": 7 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "That tells me a lot about the kind of work environment you might thrive in.",
+        "question_text": "How do you prefer to learn and solve problems? Everyone has a different style."
+    },
+    {
+        "id": 7,
+        "options": [
+            { "id": 24, "option_text": "I want to create things that help people (Social Impact)", "next_question_id": 8 },
+            { "id": 25, "option_text": "I want to solve complex, challenging problems (Intellectual Challenge)", "next_question_id": 8 },
+            { "id": 26, "option_text": "I want to achieve financial stability and growth (Career Progression)", "next_question_id": 8 },
+            { "id": 27, "option_text": "I want to work with cutting-edge technology (Innovation)", "next_question_id": 8 },
+            { "id": 28, "option_text": "I want creative freedom in my work (Autonomy)", "next_question_id": 8 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "That's a powerful motivation! Let's find a path that helps you achieve it.",
+        "question_text": "Looking ahead, what kind of impact do you dream of making with your career? What's your primary motivation?"
+    },
+    {
+        "id": 8,
+        "options": [
+            { "id": 29, "option_text": "Science (The study of the natural and physical world)", "next_question_id": 9 },
+            { "id": 30, "option_text": "Commerce (The world of business, finance, and trade)", "next_question_id": null },
+            { "id": 31, "option_text": "Arts (The exploration of human culture and creativity)", "next_question_id": null }
+        ],
+        "is_final": false,
+        "chatbot_reply": "A fantastic choice. Let's see what's inside.",
+        "question_text": "With that foundation, let's look at the major streams. Which of these broad fields sparks the most curiosity in you?"
+    },
+    {
+        "id": 9,
+        "options": [
+            { "id": 32, "option_text": "Solving abstract puzzles and working with numbers (Maths, Logic)", "next_question_id": 10 },
+            { "id": 33, "option_text": "Understanding living systems and natural processes (Biology, Medicine)", "next_question_id": 10 },
+            { "id": 34, "option_text": "Conducting experiments and discovering new principles (Research)", "next_question_id": 10 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "That's a critical distinction. Let's follow that thread.",
+        "question_text": "You chose Science, the field of discovery! Which scientific approach are you most drawn to?"
+    },
+    {
+        "id": 10,
+        "options": [
+            { "id": 35, "option_text": "Designing physical systems and hardware (Robotics, Electronics)", "next_question_id": 11 },
+            { "id": 36, "option_text": "Architecting digital solutions and software (Websites, AI, Apps)", "next_question_id": 11 },
+            { "id": 37, "option_text": "Analyzing and managing large-scale data systems (Data Science)", "next_question_id": 11 },
+            { "id": 38, "option_text": "Designing and managing communication networks (Networking)", "next_question_id": 11 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "Okay, the picture is getting clearer. We're moving from the abstract to the applied.",
+        "question_text": "Your interest in logic is a great signpost. Now, when you imagine building something, where does your interest lie?"
+    },
+    {
+        "id": 11,
+        "options": [
+            { "id": 39, "option_text": "The backend logic and database architecture (how it works)", "next_question_id": 12 },
+            { "id": 40, "option_text": "The beautiful and intuitive user interface (how it looks and feels)", "next_question_id": 12 },
+            { "id": 41, "option_text": "The overall system architecture and flow (The Blueprint)", "next_question_id": 12 },
+            { "id": 42, "option_text": "Ensuring the system is secure and reliable (DevOps/Security)", "next_question_id": 12 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "This helps us pinpoint where in the vast world of software you might belong.",
+        "question_text": "Architecting digital solutions it is! When you think about a new app or website, what layer of the technology is most exciting to you?"
+    },
+    {
+        "id": 12,
+        "options": [
+            { "id": 43, "option_text": "Artificial Intelligence & Machine Learning (Creating intelligent systems)", "next_question_id": 13 },
+            { "id": 44, "option_text": "Web & Mobile App Development (Building apps for people to use)", "next_question_id": 13 },
+            { "id": 45, "option_text": "Cybersecurity & Ethical Hacking (Protecting digital assets)", "next_question_id": 13 },
+            { "id": 46, "option_text": "Cloud Computing & DevOps (Building scalable infrastructure)", "next_question_id": 13 },
+            { "id": 47, "option_text": "Game Development (Creating interactive entertainment)", "next_question_id": 13 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "These are all high-impact areas. Let's see which one fits best.",
+        "question_text": "That points to a strong aptitude for system-building. In the tech world, which of these cutting-edge domains would you be most excited to specialize in?"
+    },
+    {
+        "id": 13,
+        "options": [
+            { "id": 48, "option_text": "This sounds like the right path for me. What's next?", "next_question_id": 14 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "You're on the verge of a great career path.",
+        "question_text": "Based on everything you've shared, your profile strongly aligns with the innovative and challenging field of **Computer Engineering**. This path leverages logic, problem-solving, and a passion for building the digital world."
+    },
+    {
+        "id": 14,
+        "options": [
+            { "id": 49, "option_text": "Colleges anywhere in the Mumbai Metropolitan Region (MMR)", "next_question_id": 15 },
+            { "id": 50, "option_text": "Specifically colleges in South Mumbai", "next_question_id": 15 },
+            { "id": 51, "option_text": "Specifically colleges in the Western Suburbs", "next_question_id": 15 },
+            { "id": 52, "option_text": "Top colleges anywhere in Maharashtra", "next_question_id": 15 }
+        ],
+        "is_final": false,
+        "chatbot_reply": "An important decision! Let's get you a list.",
+        "question_text": "Perfect. To provide a tailored list of colleges, please confirm the location you're interested in."
+    },
+    {
+        "id": 15,
+        "options": null,
+        "is_final": true,
+        "chatbot_reply": "We wish you the best of luck on your exciting journey!",
+        "question_text": "### Your Personalized Roadmap: Computer Engineering (Mumbai) 🚀\n\n**This path is recommended for you because you have shown a strong alignment with:**\n* **Core Aptitude:** Abstract thinking and logical problem-solving.\n* **Primary Interest:** Architecting and building digital software solutions.\n* **Key Skill Area:** Structuring and managing the backend logic that powers technology.\n\n**To succeed in this field, focus on developing these skills:**\n* **Programming Languages:** Python, Java, C++\n* **Core Concepts:** Data Structures, Algorithms, Operating Systems, Database Management.\n* **Practical Experience:** Personal projects, internships, and participating in hackathons.\n\n**Top Computer Science Engineering Colleges in Mumbai:**\n1.  Veermata Jijabai Technological Institute (VJTI), Matunga\n2.  Sardar Patel Institute of Technology (SPIT), Andheri\n3.  Dwarkadas J. Sanghvi College of Engineering (DJSCE), Vile Parle\n4.  Thadomal Shahani Engineering College (TSEC), Bandra\n5.  K. J. Somaiya College of Engineering (KJSCE), Vidyavihar"
+    }
+]

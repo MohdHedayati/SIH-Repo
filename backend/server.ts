@@ -6,10 +6,12 @@ interface Question {
   text: string;
 }
 
-interface Answer {
-  questionId: number;
-  answer: string;
-}
+const client = await new Client().connect({
+    hostname: "localhost",
+    username: "root",
+    db: "student_db",
+    password: "avi691610"
+});
 
 const users: { [username: string]: string } = {}; // username -> password
 const questions: Question[] = [

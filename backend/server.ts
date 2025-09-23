@@ -1,125 +1,81 @@
-import { serve } from "https://deno.land/std@0.224.0/http/server.ts";
-import { Client } from "https://deno.land/x/mysql@v2.12.0/mod.ts";
-import { validateUser, editPass } from "./loginAuth.ts";
-import { makeAcc } from "./newACC.ts";
+// server.ts
+import { serve } from "https://deno.land/std@0.203.0/http/server.ts";
 
-if (!String.prototype.replaceAll) {
-  String.prototype.replaceAll = function(search, replace) {
-    return this.split(search).join(replace);
-  };
+interface Question {
+  id: number;
+  text: string;
 }
 
-const client = await new Client().connect({
-    hostname: "localhost",
-    username: "root",
-    db: "student_db",
-    password: "Pratyush"
-});
+interface Answer {
+  questionId: number;
+  answer: string;
+}
 
-const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-};
+const users: { [username: string]: string } = {}; // username -> password
+const questions: Question[] = [
+  { id: 1, text: "What is your name?" },
+  { id: 2, text: "How old are you?" },
+  { id: 3, text: "What is your favorite color?" },
+];
+const answers: Answer[] = [];
 
-export const handler = async (req: Request): Promise<Response> => {
-    //CORS preflight stuff
-    if (req.method === 'OPTIONS') {
-        return new Response(null, {
-            headers: new Headers(corsHeaders)
-        });
-    }
+// Helper: send JSON
+function jsonResponse(data: unknown, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { 
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*"
+    },
+  });
+}
 
+serve(async (req: Request) => {
+  const { pathname } = new URL(req.url);
 
-    if (req.method === 'POST' && new URL(req.url).pathname === '/login') {
-        try {
-            const { username, password } = await req.json()
-
-            const authResult = await validateUser(client, username, password);
-
-            const headers = new Headers(corsHeaders);
-            headers.set('Content-Type', 'application/json');
-
-            //return authentication result
-            return new Response(JSON.stringify(authResult.data), {
-                headers,
-                status: authResult.status
-            });
-        } catch (error) {
-            const headers = new Headers(corsHeaders);
-            headers.set('Content-Type', 'application/json');
-
-            return new Response(JSON.stringify({
-                message: "Login Failed",
-                error: "Check your password or username"
-            }), {
-                headers,
-                status: 500
-            });
-        }
-    }
-
-    if (req.method === 'POST' && new URL(req.url).pathname === '/edit') {
-        try {
-            const {username, password, npass} = await req.json();
-
-            const Data = await editPass(client, username, password, npass);
-
-            const headers = new Headers(corsHeaders);
-            headers.set('Content-Type', 'application/json');
-
-            //return authentication result
-            return new Response(JSON.stringify(Data.data), {
-                headers,
-                status: Data.status
-            });
-        } catch (error) {
-            const headers = new Headers(corsHeaders);
-            headers.set('Content-Type', 'application/json');
-
-            return new Response(JSON.stringify({
-                message: "Failed to update data",
-                error: "Invalid Request"
-            }), {
-                headers,
-                status: 500
-            });
-        }
-    }
-    if (req.method === 'POST' && new URL(req.url).pathname === '/createAcc') {
-        try {
-            const {name,username,dob, password} = await req.json();
-
-            const Data = await makeAcc(client,name,username,dob, password);
-
-            const headers = new Headers(corsHeaders);
-            headers.set('Content-Type', 'application/json');
-
-            //return authentication result
-            return new Response(JSON.stringify(Data.data), {
-                headers,
-                status: Data.status
-            });
-        } catch (error) {
-            console.log(error);
-            const headers = new Headers(corsHeaders);
-            headers.set('Content-Type', 'application/json');
-
-            return new Response(JSON.stringify({
-                message: "Failed to update data",
-                error: "Invalid Request"
-            }), {
-                headers,
-                status: 500
-            });
-        }
-    }
-
-    // 404 Not Found
-    return new Response(JSON.stringify({ message: "Not Found" }), {
-        headers: new Headers(corsHeaders),
-        status: 404
+  // CORS preflight
+  if (req.method === "OPTIONS") {
+    return new Response(null, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET,POST,OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
     });
-};
+  }
 
-serve(handler, { port: 8000 });
+  // Auth: register
+  if (pathname === "/api/register" && req.method === "POST") {
+    const { username, password } = await req.json();
+    if (users[username]) {
+      return jsonResponse({ error: "User already exists" }, 400);
+    }
+    users[username] = password;
+    return jsonResponse({ success: true, message: "User registered" });
+  }
+
+  // Auth: login
+  if (pathname === "/api/login" && req.method === "POST") {
+    const { username, password } = await req.json();
+    if (users[username] && users[username] === password) {
+      return jsonResponse({ success: true, message: "Login successful" });
+    }
+    return jsonResponse({ error: "Invalid credentials" }, 401);
+  }
+
+  // Questions
+  if (pathname === "/api/questions" && req.method === "GET") {
+    return jsonResponse(questions);
+  }
+
+  // Submit answers
+  if (pathname === "/api/answers" && req.method === "POST") {
+    const body = await req.json();
+    answers.push(body);
+    console.log("Received answers:", answers);
+    return jsonResponse({ success: true, message: "Answers saved" });
+  }
+
+  // Default
+  return new Response("Not found", { status: 404 });
+});

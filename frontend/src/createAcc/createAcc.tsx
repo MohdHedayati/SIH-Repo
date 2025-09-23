@@ -67,7 +67,6 @@ function CreateAcc() {
 
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter") {
-      console.log(dob);
       submitData();
     }
   };
@@ -84,7 +83,7 @@ function CreateAcc() {
         <div id="login">
           <input type="text" id="name" placeholder="Name" value={name.trim()} onChange={(e) => setName(e.target.value)}/>
           <input type="text" id="user" placeholder="Username" value={username.trim()} onChange={(e) => setUsername(e.target.value)}/>
-          <input type="text" id="dob" placeholder="Date Of Birth (DD-MM-YYYY)" value={dob.trim()} onChange={(e) => setDOB(e.target.value)}/>
+          <input type="date" id="dob" placeholder="Date Of Birth" value={dob.trim()} onChange={(e) => setDOB(e.target.value)}/>
           <input type="password" id="password" placeholder="New Password" value={password.trim()} onKeyDown={handleKeyDown} onChange={(e) => setPassword(e.target.value)}/>
           <button id="submit" onClick={(e) => { e.preventDefault(); submitData(); }}>CONTINUE</button>
           <div className="link-container">

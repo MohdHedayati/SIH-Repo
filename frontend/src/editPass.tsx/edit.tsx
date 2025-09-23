@@ -82,12 +82,11 @@ function EditPassword() {
         <div id="login">
           <input type="text" id="user" placeholder="Username" value={username.trim()} onChange={(e) => setUsername(e.target.value)}/>
           <input type="password" id="password" placeholder="Password" value={password.trim()} onKeyDown={handleKeyDown} onChange={(e) => setPassword(e.target.value)}/>
-          <input type="password" id="password" placeholder="New Password" value={npass.trim()} onKeyDown={handleKeyDown} onChange={(e) => setNPass(e.target.value)}/>
+          <input type="password" id="new-password" placeholder="New Password" value={npass.trim()} onKeyDown={handleKeyDown} onChange={(e) => setNPass(e.target.value)}/>
           <button id="submit" onClick={(e) => { e.preventDefault(); submitData(); }}>CONTINUE</button>
           <div className="link-container">
           <Link className="CP" to="/login"> Back To Login </Link>
           </div>
-          
         </div>
       </div>
     </div>

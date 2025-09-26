@@ -16,13 +16,6 @@ const questionsJson = await Deno.readTextFile("./questions.json");
 const allQuestions = JSON.parse(questionsJson);
 console.log("Questions loaded successfully.");
 
-// --- Helper Functions ---
-function corr_dob(dob: string): string {
-    const parts = dob.split("-");
-    if (parts.length !== 3) { throw new Error("Invalid date format. Use DD-MM-YYYY"); }
-    const [day, month, year] = parts;
-    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
-}
 
 // --- Main Server Logic ---
 const handler = async (req: Request): Promise<Response> => {
@@ -51,9 +44,7 @@ const handler = async (req: Request): Promise<Response> => {
     if (path.includes("login") && req.method === "POST") {
         try {
             const body = await req.json();
-            // ** THE FIX IS HERE: We check for 'uname' OR 'username' **
             const username = body.uname || body.username;
-
             console.log(`LOGIN ATTEMPT - User: '${username}', Pass: '${body.password}'`);
             
             const results = await client.query(
@@ -79,9 +70,7 @@ const handler = async (req: Request): Promise<Response> => {
     if (path.includes("createAcc") && req.method === "POST") {
         try {
             const body = await req.json();
-            // ** THE FIX IS HERE: We check for 'uname' OR 'username' **
             const username = body.uname || body.username;
-
             console.log(`CREATE ACCOUNT ATTEMPT - User: '${username}'`);
 
             const existingUser = await client.query(`SELECT name FROM USERS WHERE uname = ?`, [username]);
@@ -90,20 +79,20 @@ const handler = async (req: Request): Promise<Response> => {
                 return new Response(JSON.stringify({ message: "Username already exists", isValid: false }), { status: 409, headers });
             }
 
-            const formattedDob = corr_dob(body.dob);
+            // ** THE FIX IS HERE: No need to format the date, it comes correctly from the form **
             const nuidResult = await client.query(`SELECT MAX(uid) AS max_uid FROM users;`);
             const newUid = (nuidResult[0].max_uid || 1000) + 1;
 
             await client.query(
                 `INSERT INTO users (uid, uname, name, password, dob) VALUES (?, ?, ?, ?, ?);`,
-                [newUid, username, body.name, body.password, formattedDob]
+                [newUid, username, body.name, body.password, body.dob]
             );
             
             console.log(`CREATE ACCOUNT - Success! User '${username}' created with UID ${newUid}.`);
-            return new Response(JSON.stringify({ message: "Account Added Succesfully", isValid: true, user: { name: body.name, uid: newUid, user: username } }), { status: 200, headers });
+            return new Response(JSON.stringify({ message: "Account Added Succesfully!", isValid: true }), { status: 200, headers });
         } catch (e) {
             console.error("CREATE ACCOUNT ERROR:", e);
-            return new Response(JSON.stringify({ error: "Failed to create account" }), { status: 500, headers });
+            return new Response(JSON.stringify({ message: "Failed to create account. Check that all fields are correct.", isValid: false }), { status: 500, headers });
         }
     }
 

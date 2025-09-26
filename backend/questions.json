@@ -1,181 +1,144 @@
 [
-    {
-        "id": 1,
-        "options": [
-            {
-                "id": 1,
-                "option_text": "You can enter your name here...",
-                "next_question_id": 2
-            }
-        ],
-        "is_final": false,
-        "chatbot_reply": "It's great to meet you!",
-        "question_text": "Hello! To personalize this journey, what should I call you?"
-    },
-    {
-        "id": 2,
-        "options": [
-            {
-                "id": 2,
-                "option_text": "You can enter your city here...",
-                "next_question_id": 3
-            }
-        ],
-        "is_final": false,
-        "chatbot_reply": "Awesome! Location can be key for opportunities later on.",
-        "question_text": "Which city do you call home?"
-    },
-    {
-        "id": 3,
-        "options": [
-            { "id": 3, "option_text": "> 90% (Distinction)", "next_question_id": 4 },
-            { "id": 4, "option_text": "80% - 90% (First Class)", "next_question_id": 4 },
-            { "id": 5, "option_text": "70% - 80% (Higher Second Class)", "next_question_id": 4 },
-            { "id": 6, "option_text": "60% - 70% (Second Class)", "next_question_id": 4 },
-            { "id": 7, "option_text": "Prefer not to say", "next_question_id": 4 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "Thanks for sharing. Remember, scores are just one part of the picture!",
-        "question_text": "Thinking about your recent academic performance, which range best describes your scores?"
-    },
-    {
-        "id": 4,
-        "options": [
-            { "id": 8, "option_text": "Mathematics (Problem-Solving & Logic)", "next_question_id": 5 },
-            { "id": 9, "option_text": "Physics (Understanding the Universe)", "next_question_id": 5 },
-            { "id": 10, "option_text": "Chemistry (The Science of Matter)", "next_question_id": 5 },
-            { "id": 11, "option_text": "Biology (The Study of Life)", "next_question_id": 5 },
-            { "id": 12, "option_text": "Computer Science (Coding & Tech)", "next_question_id": 5 },
-            { "id": 13, "option_text": "History & Civics (Understanding Society)", "next_question_id": 5 },
-            { "id": 14, "option_text": "Economics & Commerce (Understanding Business)", "next_question_id": 5 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "Excellent. Leaning into your strengths is a great strategy.",
-        "question_text": "Every student has subjects they connect with. Which of these feels like your strongest area?"
-    },
-    {
-        "id": 5,
-        "options": [
-            { "id": 15, "option_text": "Mathematics", "next_question_id": 6 },
-            { "id": 16, "option_text": "Physics", "next_question_id": 6 },
-            { "id": 17, "option_text": "Chemistry", "next_question_id": 6 },
-            { "id": 18, "option_text": "History / Memorization-heavy subjects", "next_question_id": 6 },
-            { "id": 19, "option_text": "Arts / Creative subjects", "next_question_id": 6 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "That's perfectly normal and helps us understand your unique profile.",
-        "question_text": "And what about the other side? Is there a subject you find more challenging or less intuitive?"
-    },
-    {
-        "id": 6,
-        "options": [
-            { "id": 20, "option_text": "Building a hands-on project (Practical Application)", "next_question_id": 7 },
-            { "id": 21, "option_text": "Understanding the core theory first (Theoretical Foundation)", "next_question_id": 7 },
-            { "id": 22, "option_text": "Collaborating with a team on a challenge (Group Work)", "next_question_id": 7 },
-            { "id": 23, "option_text": "Watching video tutorials and examples (Visual Learning)", "next_question_id": 7 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "That tells me a lot about the kind of work environment you might thrive in.",
-        "question_text": "How do you prefer to learn and solve problems? Everyone has a different style."
-    },
-    {
-        "id": 7,
-        "options": [
-            { "id": 24, "option_text": "I want to create things that help people (Social Impact)", "next_question_id": 8 },
-            { "id": 25, "option_text": "I want to solve complex, challenging problems (Intellectual Challenge)", "next_question_id": 8 },
-            { "id": 26, "option_text": "I want to achieve financial stability and growth (Career Progression)", "next_question_id": 8 },
-            { "id": 27, "option_text": "I want to work with cutting-edge technology (Innovation)", "next_question_id": 8 },
-            { "id": 28, "option_text": "I want creative freedom in my work (Autonomy)", "next_question_id": 8 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "That's a powerful motivation! Let's find a path that helps you achieve it.",
-        "question_text": "Looking ahead, what kind of impact do you dream of making with your career? What's your primary motivation?"
-    },
-    {
-        "id": 8,
-        "options": [
-            { "id": 29, "option_text": "Science (The study of the natural and physical world)", "next_question_id": 9 },
-            { "id": 30, "option_text": "Commerce (The world of business, finance, and trade)", "next_question_id": null },
-            { "id": 31, "option_text": "Arts (The exploration of human culture and creativity)", "next_question_id": null }
-        ],
-        "is_final": false,
-        "chatbot_reply": "A fantastic choice. Let's see what's inside.",
-        "question_text": "With that foundation, let's look at the major streams. Which of these broad fields sparks the most curiosity in you?"
-    },
-    {
-        "id": 9,
-        "options": [
-            { "id": 32, "option_text": "Solving abstract puzzles and working with numbers (Maths, Logic)", "next_question_id": 10 },
-            { "id": 33, "option_text": "Understanding living systems and natural processes (Biology, Medicine)", "next_question_id": 10 },
-            { "id": 34, "option_text": "Conducting experiments and discovering new principles (Research)", "next_question_id": 10 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "That's a critical distinction. Let's follow that thread.",
-        "question_text": "You chose Science, the field of discovery! Which scientific approach are you most drawn to?"
-    },
-    {
-        "id": 10,
-        "options": [
-            { "id": 35, "option_text": "Designing physical systems and hardware (Robotics, Electronics)", "next_question_id": 11 },
-            { "id": 36, "option_text": "Architecting digital solutions and software (Websites, AI, Apps)", "next_question_id": 11 },
-            { "id": 37, "option_text": "Analyzing and managing large-scale data systems (Data Science)", "next_question_id": 11 },
-            { "id": 38, "option_text": "Designing and managing communication networks (Networking)", "next_question_id": 11 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "Okay, the picture is getting clearer. We're moving from the abstract to the applied.",
-        "question_text": "Your interest in logic is a great signpost. Now, when you imagine building something, where does your interest lie?"
-    },
-    {
-        "id": 11,
-        "options": [
-            { "id": 39, "option_text": "The backend logic and database architecture (how it works)", "next_question_id": 12 },
-            { "id": 40, "option_text": "The beautiful and intuitive user interface (how it looks and feels)", "next_question_id": 12 },
-            { "id": 41, "option_text": "The overall system architecture and flow (The Blueprint)", "next_question_id": 12 },
-            { "id": 42, "option_text": "Ensuring the system is secure and reliable (DevOps/Security)", "next_question_id": 12 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "This helps us pinpoint where in the vast world of software you might belong.",
-        "question_text": "Architecting digital solutions it is! When you think about a new app or website, what layer of the technology is most exciting to you?"
-    },
-    {
-        "id": 12,
-        "options": [
-            { "id": 43, "option_text": "Artificial Intelligence & Machine Learning (Creating intelligent systems)", "next_question_id": 13 },
-            { "id": 44, "option_text": "Web & Mobile App Development (Building apps for people to use)", "next_question_id": 13 },
-            { "id": 45, "option_text": "Cybersecurity & Ethical Hacking (Protecting digital assets)", "next_question_id": 13 },
-            { "id": 46, "option_text": "Cloud Computing & DevOps (Building scalable infrastructure)", "next_question_id": 13 },
-            { "id": 47, "option_text": "Game Development (Creating interactive entertainment)", "next_question_id": 13 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "These are all high-impact areas. Let's see which one fits best.",
-        "question_text": "That points to a strong aptitude for system-building. In the tech world, which of these cutting-edge domains would you be most excited to specialize in?"
-    },
-    {
-        "id": 13,
-        "options": [
-            { "id": 48, "option_text": "This sounds like the right path for me. What's next?", "next_question_id": 14 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "You're on the verge of a great career path.",
-        "question_text": "Based on everything you've shared, your profile strongly aligns with the innovative and challenging field of **Computer Engineering**. This path leverages logic, problem-solving, and a passion for building the digital world."
-    },
-    {
-        "id": 14,
-        "options": [
-            { "id": 49, "option_text": "Colleges anywhere in the Mumbai Metropolitan Region (MMR)", "next_question_id": 15 },
-            { "id": 50, "option_text": "Specifically colleges in South Mumbai", "next_question_id": 15 },
-            { "id": 51, "option_text": "Specifically colleges in the Western Suburbs", "next_question_id": 15 },
-            { "id": 52, "option_text": "Top colleges anywhere in Maharashtra", "next_question_id": 15 }
-        ],
-        "is_final": false,
-        "chatbot_reply": "An important decision! Let's get you a list.",
-        "question_text": "Perfect. To provide a tailored list of colleges, please confirm the location you're interested in."
-    },
-    {
-        "id": 15,
-        "options": null,
-        "is_final": true,
-        "chatbot_reply": "We wish you the best of luck on your exciting journey!",
-        "question_text": "### Your Personalized Roadmap: Computer Engineering (Mumbai) 🚀\n\n**This path is recommended for you because you have shown a strong alignment with:**\n* **Core Aptitude:** Abstract thinking and logical problem-solving.\n* **Primary Interest:** Architecting and building digital software solutions.\n* **Key Skill Area:** Structuring and managing the backend logic that powers technology.\n\n**To succeed in this field, focus on developing these skills:**\n* **Programming Languages:** Python, Java, C++\n* **Core Concepts:** Data Structures, Algorithms, Operating Systems, Database Management.\n* **Practical Experience:** Personal projects, internships, and participating in hackathons.\n\n**Top Computer Science Engineering Colleges in Mumbai:**\n1.  Veermata Jijabai Technological Institute (VJTI), Matunga\n2.  Sardar Patel Institute of Technology (SPIT), Andheri\n3.  Dwarkadas J. Sanghvi College of Engineering (DJSCE), Vile Parle\n4.  Thadomal Shahani Engineering College (TSEC), Bandra\n5.  K. J. Somaiya College of Engineering (KJSCE), Vidyavihar"
-    }
+  {
+    "id": 1,
+    "chatbot_reply": "Welcome! I'm here to help you explore the exciting world of career possibilities. To make this journey as helpful as possible, I'd love to get to know you a bit better.",
+    "question_text": "First things first, what name should I call you by?",
+    "options": [
+      { 
+        "id": 101, 
+        "option_text": "Enter your name...", 
+        "next_question_id": 2,
+        "type": "input" 
+      }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 2,
+    "chatbot_reply": "It's great to meet you! Let's start with the big picture. Understanding your core motivation is the key to finding a career that doesn't just pay the bills, but truly fulfills you.",
+    "question_text": "When you imagine your future work, what kind of problems do you get the most excited about solving?",
+    "options": [
+      { "id": 202, "option_text": "Human-Centered Problems: I'm passionate about understanding people's needs, improving their experiences, and creating things that help others.", "next_question_id": 3 },
+      { "id": 201, "option_text": "Logical Puzzles & Systems: I love untangling complex systems, finding efficiencies, and building things that work flawlessly.", "next_question_id": 3 },
+      { "id": 203, "option_text": "Strategic Challenges: I enjoy thinking about the big picture, identifying opportunities, and leading teams to achieve ambitious goals.", "next_question_id": 3 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 3,
+    "chatbot_reply": "That's a very insightful answer. It tells me a lot about your natural mindset. Now, let's think about *how* you prefer to work. Your ideal environment is just as important as the work itself.",
+    "question_text": "Which of these work styles feels most like you?",
+    "options": [
+      { "id": 303, "option_text": "I thrive in a collaborative setting, bouncing ideas off a team.", "next_question_id": 4 },
+      { "id": 301, "option_text": "I prefer a clear plan and structured tasks to execute perfectly.", "next_question_id": 4 },
+      { "id": 304, "option_text": "I do my best work when I can focus deeply on my own, without interruptions.", "next_question_id": 4 },
+      { "id": 302, "option_text": "I enjoy having the freedom to experiment and figure things out as I go.", "next_question_id": 4 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 4,
+    "chatbot_reply": "Excellent. We're building a great profile of your professional personality. Now, let's connect this to your academic interests.",
+    "question_text": "Thinking about your studies, which of these broad fields sparks the most genuine curiosity in you?",
+    "options": [
+      { "id": 402, "option_text": "Commerce & Business (How systems of money and people operate)", "next_question_id": 200 },
+      { "id": 403, "option_text": "Arts & Humanities (How we express ideas, culture, and creativity)", "next_question_id": 300 },
+      { "id": 401, "option_text": "Science & Technology (How things work, from code to the cosmos)", "next_question_id": 10 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 10,
+    "chatbot_reply": "A perfect choice for a logical mind. The world of Science & Technology is driven by the kind of structured problem-solving you enjoy. Let's get more specific.",
+    "question_text": "When you think about technology, what aspect is most fascinating?",
+    "options": [
+      { "id": 1001, "option_text": "The tangible world: Building physical machines, electronics, and robotics.", "next_question_id": 999 },
+      { "id": 1002, "option_text": "The abstract world: Architecting software, analyzing data, and creating AI.", "next_question_id": 11 },
+      { "id": 1003, "option_text": "The protective world: Defending systems, finding vulnerabilities, and cybersecurity.", "next_question_id": 999 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 11,
+    "chatbot_reply": "That's a key distinction. Focusing on the abstract world of software and data is where many of today's biggest innovations are happening. Let's keep going.",
+    "question_text": "Imagine you're on a software team. What role would you naturally gravitate towards?",
+    "options": [
+        { "id": 1102, "option_text": "The Builder: Writing the code and bringing the design to life.", "next_question_id": 12 },
+        { "id": 1103, "option_text": "The Analyst: Testing the system, finding bugs, and analyzing the data.", "next_question_id": 999 },
+        { "id": 1101, "option_text": "The Architect: Designing the blueprint and overall structure of the project.", "next_question_id": 12 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 12,
+    "chatbot_reply": "Okay, an architect or a builder. That's the heart of engineering. Now, let's think about the *scale* of the projects that excite you.",
+    "question_text": "Which of these project types sounds more appealing?",
+    "options": [
+      { "id": 1202, "option_text": "Creating a highly specialized, complex tool that solves one specific problem perfectly.", "next_question_id": 13 },
+      { "id": 1201, "option_text": "Building a massive, scalable system that can serve millions of users, like a social media backend or a cloud service.", "next_question_id": 13 },
+      { "id": 1203, "option_text": "Developing a data-intensive model that can analyze information and predict future trends.", "next_question_id": 13 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 13,
+    "chatbot_reply": "That gives me a great sense of your ambition. Knowing the scale you want to work at is crucial. Now, a bit about your personal style.",
+    "question_text": "When you're learning a new technical skill, what's your preferred method?",
+    "options": [
+      { "id": 1303, "option_text": "I jump right in and start building, looking things up as I hit problems.", "next_question_id": 14 },
+      { "id": 1302, "option_text": "I find a good tutorial or course and follow along with the examples.", "next_question_id": 14 },
+      { "id": 1301, "option_text": "I read the official documentation to understand the theory first.", "next_question_id": 14 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 14,
+    "chatbot_reply": "Excellent. That tells me about your approach to problem-solving. Now, let's get to the fun part: the specific technologies.",
+    "question_text": "When you think about a new app or website, what layer of the technology is most exciting to you?",
+    "options": [
+      { "id": 1403, "option_text": "The entire system working together (Full Stack).", "next_question_id": 15 },
+      { "id": 1401, "option_text": "The backend logic and database architecture (how it works).", "next_question_id": 15 },
+      { "id": 1402, "option_text": "The beautiful and intuitive user interface (how it looks and feels).", "next_question_id": 999 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 15,
+    "chatbot_reply": "Perfect. Focusing on the core engine of an application is a strong indicator for a career in backend or full-stack engineering. We're on the final question.",
+    "question_text": "In the tech world, which of these cutting-edge domains would you be most excited to specialize in?",
+    "options": [
+        { "id": 1502, "option_text": "Web & Mobile App Development (Building apps for people to use)", "next_question_id": 100 },
+        { "id": 1503, "option_text": "Cloud Computing & DevOps (Building scalable infrastructure)", "next_question_id": 100 },
+        { "id": 1501, "option_text": "Artificial Intelligence & Machine Learning (Creating intelligent systems)", "next_question_id": 100 }
+    ],
+    "is_final": false
+  },
+  {
+    "id": 100,
+    "chatbot_reply": "Thank you for sharing your thoughts. Based on our detailed conversation, it's clear you have a strong aptitude for engineering. I've prepared a personalized roadmap for you. I wish you the very best on your exciting journey!",
+    "question_text": "### Your Personalized Roadmap: Software Engineering & Development 🚀\n\n**This path is a strong fit because you show an alignment with:**\n* **Mindset:** A logical approach to solving complex, abstract problems at scale.\n* **Interest:** A clear fascination with architecting and building the core logic of digital solutions.\n* **Work Style:** A desire to be a hands-on builder or a strategic architect in a technical team.\n\n**To succeed in this field, focus on these key areas:**\n* **Foundational Languages:** Master at least one core language like Python, Java, or C++.\n* **Web Technologies:** Become proficient in JavaScript/TypeScript and a modern framework like React.\n* **Core Concepts:** Deeply understand Data Structures, Algorithms, and Database Management.",
+    "options": null,
+    "is_final": true
+  },
+  {
+    "id": 200,
+    "chatbot_reply": "Thank you for that insightful conversation. Based on your profile, I've created a recommended path for you. I wish you the best of luck on your journey into the world of business!",
+    "question_text": "### Your Personalized Roadmap: Finance & Management 📈\n\n**This path is a strong fit because you show an alignment with:**\n* **Mindset:** A strategic and analytical approach to decision-making.\n* **Interest:** A clear fascination with the systems of finance and organizational leadership.\n* **Work Style:** A preference for data-driven strategies and a focus on long-term growth.\n\n**To succeed in this field, focus on these key areas:**\n* **Quantitative Skills:** Excel in subjects like Accountancy, Financial Management, and Economics.\n* **Professional Certifications:** Consider pursuing globally recognized qualifications like CA (Chartered Accountancy) or CFA (Chartered Financial Analyst).\n* **Higher Education:** An MBA in Finance from a top institution can be a powerful career accelerator.\n* **Practical Experience:** Seek internships in finance firms, private equity, or management consulting. Analyze the stock market to build practical knowledge.",
+    "options": null,
+    "is_final": true
+  },
+  {
+    "id": 300,
+    "chatbot_reply": "It was a pleasure getting to know your creative side. Based on your unique talents, I've prepared a personalized roadmap for you. I wish you the very best on your creative journey!",
+    "question_text": "### Your Personalized Roadmap: UX/UI & Digital Media Design 🎨\n\n**This path is a strong fit because you show an alignment with:**\n* **Mindset:** A human-centered approach to problem-solving, focusing on clarity and beauty.\n* **Interest:** A passion for creating engaging and intuitive interactive experiences.\n* **Work Style:** A desire to use your creative talents to produce clear, informative, and beautiful work.\n\n**To succeed in this field, focus on these key areas:**\n* **Design Tools:** Master the industry-standard tools like Figma, Adobe XD, and the Adobe Creative Suite.\n* **Core Principles:** Deeply understand User Research, Wireframing, Prototyping, and Interaction Design.\n* **Build Your Portfolio:** This is the single most important asset. Create a professional website showcasing 3-5 high-quality personal or freelance projects.\n* **Communication Skills:** Learn to articulate your design decisions and collaborate effectively with developers and product managers.",
+    "options": null,
+    "is_final": true
+  },
+  {
+    "id": 999,
+    "chatbot_reply": "Thank you for your answers. Based on your selections, your profile points towards some exciting fields like robotics, cybersecurity, or user interface design.",
+    "question_text": "While this specific guided quiz is tailored towards a software engineering path, your interests are incredibly valuable in the tech industry. We encourage you to explore these areas further!\n\n**Potential fields to research:**\n* Mechatronics & Robotics Engineering\n* Cybersecurity Analysis\n* UI/UX Design\n* Data Analytics",
+    "options": null,
+    "is_final": true
+  }
 ]

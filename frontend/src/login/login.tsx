@@ -9,8 +9,6 @@ function Login() {
   const mainRef = useRef<HTMLDivElement>(null);
   const maxMovement = 16;
 
-
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const mouseX = e.clientX / window.innerWidth;
@@ -48,16 +46,15 @@ function Login() {
       });
 
       const data = await response.json();
-      if (!data.isValid) {
+      if (!data.isValid) { 
         alert(data.message);
         return;
       }
       if (data.isValid) {
         sessionStorage.setItem("user", JSON.stringify(data.user));
-        // --- THIS IS THE CORRECTED LINE ---
-        window.location.href = '/questions';
+        // --- THIS IS THE ONLY CHANGE ---
+        window.location.href = '/dashboard';
       }
-
 
     } catch (error) {
       console.error("Login error:", error);

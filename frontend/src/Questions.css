@@ -3,67 +3,164 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #1a1a1a;
+  background: #101010;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   padding: 20px;
 }
 
 .question-card {
-  background-color: #242424;
-  color: rgba(255, 255, 255, 0.87);
-  border-radius: 12px;
-  padding: 40px;
+  background-color: #1c1c1c;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 40px 50px;
   width: 100%;
-  max-width: 800px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-width: 900px;
+  box-shadow: 0 0 40px rgba(140, 122, 230, 0.2);
+  border: 1px solid #333;
 }
 
 .question-card h1 {
   margin-top: 0;
-  color: #535bf2;
+  color: #9d8de8;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2.8em;
+  font-weight: 700;
 }
 
 .chatbot-reply {
   font-style: italic;
-  color: #9e9e9e;
-  border-left: 4px solid #535bf2;
-  padding-left: 15px;
-  margin: 20px 0;
+  color: #aaa;
+  border-left: 4px solid #9d8de8;
+  padding-left: 20px;
+  margin: 30px 0;
+  font-size: 1.1em;
+  min-height: 40px; 
 }
 
 .question-text {
-  font-size: 1.4em;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-.question-text strong, .question-text b {
-  color: #a6adf5;
+  font-size: 1.5em;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  color: #f0f0f0;
 }
 
 .options-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .option-button {
-  background-color: #3a3a3a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background: linear-gradient(to right, #2a2a2a, #333333);
   color: white;
-  border: 1px solid #555;
-  border-radius: 8px;
-  padding: 15px 20px;
-  font-size: 1em;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 18px 25px;
+  font-size: 1.1em;
   text-align: left;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: all 0.3s ease;
 }
 
 .option-button:hover {
-  background-color: #535bf2;
-  border-color: #747bff;
-  transform: translateY(-2px);
+  background: linear-gradient(to right, #8c7ae6, #7463d9);
+  border-color: #a192e6;
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(140, 122, 230, 0.5);
+}
+
+.option-text {
+  flex-grow: 1;
+}
+
+.view-more-link {
+  flex-shrink: 0;
+  font-size: 0.8em;
+  font-weight: 600;
+  color: #888;
+  text-decoration: underline;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.option-button:hover .view-more-link {
+  color: #40c4ff;
+}
+
+.extra-thoughts-container {
+  margin-top: 40px;
+  border-top: 1px solid #333;
+  padding-top: 30px;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 15px;
+  color: #e0e0e0;
+  font-family: inherit;
+  font-size: 1em;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+textarea::placeholder {
+  color: #666;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #8c7ae6;
+  background-color: #1c1c1c;
+  box-shadow: 0 0 10px rgba(140, 122, 230, 0.5);
+}
+
+.input-option-container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  grid-column: 1 / -1;
+}
+
+/* --- CORRECTED STYLES FOR THE NAME INPUT --- */
+.text-input-field {
+  flex-grow: 1;
+  background: transparent; /* This removes the white box */
+  border: none;
+  border-bottom: 2px solid #555; /* A visible underline for the dark theme */
+  color: #ff0000; /* Ensures the text you type is white */
+  font-size: 1.2em;
+  padding: 10px 5px;
+  transition: border-color 0.3s ease;
+}
+
+.text-input-field:focus {
+  outline: none;
+  border-bottom-color: #9d8de8; /* Highlight color on focus */
+}
+/* --- END OF CORRECTION --- */
+
+.input-submit-button {
+  background-color: #9d8de8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-submit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(157, 141, 232, 0.4);
 }

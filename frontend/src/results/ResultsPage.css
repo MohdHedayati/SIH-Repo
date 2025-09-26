@@ -1,0 +1,139 @@
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.results-page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #101010;
+  color: #e0e0e0;
+  font-family: 'Inter', system-ui, sans-serif;
+  padding: 40px 50px;
+  box-sizing: border-box;
+}
+
+.results-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: slideInUp 0.5s ease-out;
+}
+
+.results-header h1 { font-size: 3em; color: #fff; margin: 0 0 10px 0; }
+.results-header p { font-size: 1.1em; color: #aaa; font-style: italic; max-width: 800px; margin: 0 auto; }
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 1024px) {
+  .results-grid { grid-template-columns: 2fr 1.2fr; }
+}
+
+.roadmap-card, .sidebar-card {
+  background-color: #1c1c1c;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 20px;
+  animation: slideInUp 0.6s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.roadmap-card.title-card {
+  background: linear-gradient(135deg, #9d8de8, #8c7ae6);
+  color: #fff;
+  padding: 30px;
+}
+.roadmap-card.title-card h2 { margin: 0; font-size: 2.5em; }
+.roadmap-card h3 { font-size: 1.4em; margin: 0 0 15px 0; color: #9d8de8; }
+.roadmap-card ul { padding-left: 20px; margin: 0; line-height: 1.8; color: #ccc; }
+.roadmap-card ul li strong { color: #fff; }
+
+.sidebar-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.5em;
+  color: #fff;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.chart-container {
+  height: 300px;
+}
+
+.dropdown-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 12px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+}
+.dropdown:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.college-list { display: flex; flex-direction: column; gap: 10px; max-height: 250px; overflow-y: auto; padding-right: 5px; }
+.college-card {
+  background-color: #2a2a2a;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+}
+.college-card:hover { border-color: #9d8de8; }
+.college-info h4 { margin: 0 0 5px 0; font-size: 1.1em; color: #e0e0e0; }
+.college-info span { font-size: 0.9em; color: #aaa; }
+
+.explore-button {
+  background-color: #3a3a3a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 15px;
+  font-weight: bold;
+  font-size: 0.9em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.explore-button:hover { background-color: #9d8de8; }
+
+.results-footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.action-button {
+  padding: 12px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border: 1px solid #444;
+  background-color: #2a2a2a;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.action-button:hover { border-color: #9d8de8; transform: translateY(-2px); }
+.action-button.primary { background: linear-gradient(to right, #8c7ae6, #7463d9); border-color: transparent; }
+.action-button.primary:hover { box-shadow: 0 6px 20px rgba(140, 122, 230, 0.4); }
